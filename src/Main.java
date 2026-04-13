@@ -12,7 +12,11 @@ class Main {
         System.out.println("いずれかの数字を入力してください");
         Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
-        System.out.println("あなたが入力は「" + array0[num] + "」です。");
+        try {
+            System.out.println("あなたは「" + array0[num] + "」を出しました。");  
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("入力できる範囲を超えました。");
+        }
         return num;
         /*実行コマンド
         javac -d bin -encoding UTF-8 src/Main.java
@@ -37,6 +41,7 @@ class Main {
         System.out.println("コンピューターは「" + array[number] + "」を出しました。");
         if (array[number] == array[num]) {
             System.out.println("あいこ");
+            System.out.println("もう一度入力してください");
             comparison(Setting());
         } else if(number > num) {
             if(array[number] == "パー" && array[num] == "チョキ") {
