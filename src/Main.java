@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Random;
 class Main {
+    Scanner scan = new Scanner(System.in);
+    Random random = new Random();
     public static void main(String[] args) {
         Main m = new Main();
         m.comparison(m.Setting());
@@ -10,7 +12,6 @@ class Main {
         String[] array0 = {"グー", "チョキ", "パー"};
         System.out.println("0:グー 1:チョキ 2:パー");
         System.out.println("いずれかの数字を入力してください");
-        Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
         try {
             System.out.println("あなたは「" + array0[num] + "」を出しました。");  
@@ -28,7 +29,7 @@ class Main {
         String[] array = {"グー", "チョキ", "パー"};
         boolean a = true;
         while(a) {
-            if(num > 2) {
+            if(num > 2 || num < 0) {
                 System.out.println("もう一度入力してください");
                 num = Setting();
             } else {
@@ -36,7 +37,6 @@ class Main {
             }
         }
         //System.out.println("finish");//確認用
-        Random random = new Random();
         int number = random.nextInt(3);
         System.out.println("コンピューターは「" + array[number] + "」を出しました。");
         if (array[number] == array[num]) {
