@@ -7,10 +7,11 @@ class Main {
     }
 
     public int Setting() {
-        System.out.println("キーボード入力してください");
+        System.out.println("0:グー 1:チョキ 3:パー");
+        System.out.println("いずれかの数字を入力してください")
         Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
-        System.out.println("入力された文字は「" + num + "」です");
+        System.out.println("入力された文字は「" + array[num] + "」です。");
         return num;
         /*実行コマンド
         javac -encoding UTF-8 src/Main.java
@@ -34,6 +35,22 @@ class Main {
         System.out.println(number);
         if (array[number] == array[num]) {
             System.out.println("あいこ");
-        } else if()
+        } else if(number > num) {
+            if(array[number] == "パー" && array[num] == "チョキ") {
+                System.out.println("あなたの勝ちです。");
+            } else if(array[number] == "パー" && array[num] == "グー") {
+                System.out.println("あなたの負けです。");
+            } else if(array[number] == "チョキ" && array[num] == "グー") {
+                System.out.println("あなたの勝ちです。");
+            }
+        } else if(number < num) {
+            if(array[number] == "チョキ" && array[num] == "パー") {
+                System.out.println("あなたの負けです。");
+            } else if(array[number] == "グー" && array[num] == "パー") {
+                System.out.println("あなたの勝ちです。");
+            } else if(array[number] == "グー" && array[num] == "チョキ"){
+                System.out.println("あなたの負けです。");
+            }
+        }
     }
 }
