@@ -7,15 +7,17 @@ class Main {
     }
 
     public int Setting() {
-        System.out.println("0:グー 1:チョキ 3:パー");
-        System.out.println("いずれかの数字を入力してください")
+        String[] array0 = {"グー", "チョキ", "パー"};
+        System.out.println("0:グー 1:チョキ 2:パー");
+        System.out.println("いずれかの数字を入力してください");
         Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
-        System.out.println("入力された文字は「" + array[num] + "」です。");
+        System.out.println("あなたが入力は「" + array0[num] + "」です。");
         return num;
         /*実行コマンド
-        javac -encoding UTF-8 src/Main.java
-        java -Dfile.encoding=UTF-8 src/Main.java*/
+        javac -d bin -encoding UTF-8 src/Main.java
+        java -Dfile.encoding=UTF-8 src/Main.java
+        java -cp bin src/Main.java*/
     }
 
     public void comparison(int num) {
@@ -29,12 +31,13 @@ class Main {
                 a = false;
             }
         }
-        System.out.println("finish");//確認用
+        //System.out.println("finish");//確認用
         Random random = new Random();
         int number = random.nextInt(3);
-        System.out.println(number);
+        System.out.println("コンピューターは「" + array[number] + "」を出しました。");
         if (array[number] == array[num]) {
             System.out.println("あいこ");
+            comparison(Setting());
         } else if(number > num) {
             if(array[number] == "パー" && array[num] == "チョキ") {
                 System.out.println("あなたの勝ちです。");
